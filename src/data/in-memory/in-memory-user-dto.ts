@@ -29,11 +29,13 @@ export default class InMemoryUserDTO implements UserDTO {
   }
 
   async createUser(data: Omit<User, "verified">) {
-    this.users.push({
+    const newUser = {
       ...data,
       verified: false,
-    });
+    };
 
-    return 1;
+    this.users.push(newUser);
+
+    return newUser;
   }
 }
