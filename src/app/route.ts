@@ -5,6 +5,7 @@ import z from "zod";
 
 import PrismaUserDto from "@/data/prisma/prisma-user-dto";
 import PrismaStatsDTO from "@/data/prisma/prisma-stats-dto";
+import { constructNow } from "date-fns";
 
 const schema = z.object({
   email: z.string().email(),
@@ -21,6 +22,10 @@ export async function GET(request: NextRequest) {
     const prismaUserDto = new PrismaUserDto();
 
     const searchParams = Object.fromEntries(request.nextUrl.searchParams);
+
+    const res = await request.json();
+    console.log("BODY:", res);
+    console.log("PARAMS:", searchParams);
 
     const response = schema.safeParse(searchParams);
 
