@@ -5,7 +5,6 @@ import z from "zod";
 
 import PrismaUserDto from "@/data/prisma/prisma-user-dto";
 import PrismaStatsDTO from "@/data/prisma/prisma-stats-dto";
-import { constructNow } from "date-fns";
 
 const schema = z.object({
   email: z.string().email(),
