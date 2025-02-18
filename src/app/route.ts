@@ -5,7 +5,6 @@ import z from "zod";
 
 import PrismaUserDto from "@/data/prisma/prisma-user-dto";
 import PrismaStatsDTO from "@/data/prisma/prisma-stats-dto";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 const schema = z.object({
   email: z.string().email(),
